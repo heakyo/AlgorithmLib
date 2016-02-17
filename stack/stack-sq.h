@@ -36,27 +36,36 @@
 /************************************************************************
 *	Extern Section
 ************************************************************************/
-//extern int a;
 
 /************************************************************************
 *	Macro Define Section
 ************************************************************************/
-#define MAX_TIMER_OUT (4)
 
 /************************************************************************
 *	Struct Define Section
 ************************************************************************/
-typedef struct CM_RadiationDose
-{
-    unsigned char ucCtgID;
-    char cPatId_a[MAX_PATI_LEN];
-}CM_RadiationDose_st, *CM_RadiationDose_pst;
+typedef char ElemType;
+
+typedef sturct _stack_sq {
+    ElemType *stack;
+    int top;
+    int max_size;
+} stack_sq;
+
 
 /************************************************************************
 *	Prototype Declare Section
 ************************************************************************/
-unsigned int MD_guiGetScanTimes(void);
+void init_stack(stack_sq *S);
+void clear_stack(stack_sq *S);
 
+void push(stack_sq *S, ElemType x);
+ElemType pop(stack_sq *S);
+
+int empty_stack(stack_sq *S);
+int full_stack(stack_sq *S);
+
+int peek(stack_sq *S);
 
 #endif
 
