@@ -56,8 +56,8 @@ typedef sturct _stack_sq {
 /************************************************************************
 *	Prototype Declare Section
 ************************************************************************/
-void init_stack(stack_sq *S);
-void clear_stack(stack_sq *S);
+int init_stack(stack_sq *S, int max_size);
+int clear_stack(stack_sq *S);
 
 void push(stack_sq *S, ElemType x);
 ElemType pop(stack_sq *S);
