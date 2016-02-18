@@ -31,7 +31,8 @@
 /************************************************************************
 *	Include File Section
 ************************************************************************/
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 /************************************************************************
 *	Extern Section
@@ -46,7 +47,7 @@
 ************************************************************************/
 typedef char ElemType;
 
-typedef sturct _stack_sq {
+typedef struct _stack_sq {
     ElemType *stack;
     int top;
     int max_size;
@@ -56,8 +57,8 @@ typedef sturct _stack_sq {
 /************************************************************************
 *	Prototype Declare Section
 ************************************************************************/
-int init_stack(stack_sq *S, int max_size);
-int clear_stack(stack_sq *S);
+void init_stack(stack_sq *S, int max_size);
+void clear_stack(stack_sq *S);
 
 void push(stack_sq *S, ElemType x);
 ElemType pop(stack_sq *S);
@@ -65,7 +66,9 @@ ElemType pop(stack_sq *S);
 int empty_stack(stack_sq *S);
 int full_stack(stack_sq *S);
 
-int peek(stack_sq *S);
+ElemType peek(stack_sq *S);
+
+static void realloc_stack(stack_sq *S);
 
 #endif
 
