@@ -15,7 +15,7 @@ int main()
 	printf("%d \n", pop(&S));
 	
 	push(&S, 68);
-	printf("%d ", peek(&S));
+	printf("%d ", peek_stack(&S));
 	printf("%d \n", pop(&S));
 	
 	while(!empty_stack(&S))
