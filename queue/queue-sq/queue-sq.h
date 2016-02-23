@@ -1,5 +1,5 @@
 /*****************************************************************************************
-*    File Name			:	stack-sq.h
+*    File Name			:	queue-sq.h
 *    Copyright			:	All Rights Reserved.
 *    Module Name		:	Draw Engine/Display
 *
@@ -20,13 +20,13 @@
 /************************************************************************
 *	Multi-Include-Prevent Section
 ************************************************************************/
-#ifndef __STACK_SQ_H 
-#define __STACK_SQ_H
+#ifndef __QUEUE_SQ_H 
+#define __QUEUE_SQ_H
 
 /************************************************************************
 *	Debug switch Section
 ************************************************************************/
-#define D_STACK_SQ
+#define D_QUEUE_SQ
 
 /************************************************************************
 *	Include File Section
@@ -47,28 +47,28 @@
 ************************************************************************/
 typedef char ElemType;
 
-typedef struct _stack_sq {
-    ElemType *stack;
-    int top;
+typedef struct _queue_sq {
+    ElemType *queue;
+    int front, rear, len;
     int max_size;
-} stack_sq;
+} queue_sq;
 
 
 /************************************************************************
 *	Prototype Declare Section
 ************************************************************************/
-void init_stack(stack_sq *S, int max_size);
-void clear_stack(stack_sq *S);
+void init_queue(queue_sq *Q, int max_size);
+void clear_queue(queue_sq *Q);
 
-void push(stack_sq *S, ElemType x);
-ElemType pop(stack_sq *S);
+void in_queue(queue_sq *Q, ElemType x);
+ElemType out_queue(queue_sq *Q);
 
-int empty_stack(stack_sq *S);
-int full_stack(stack_sq *S);
+int empty_queue(queue_sq *Q);
+int full_queue(queue_sq *Q);
 
-ElemType peek_stack(stack_sq *S);
+ElemType peek_queue(queue_sq *Q);
 
-static void realloc_stack(stack_sq *S);
+static void realloc_queue(queue_sq *Q);
 
 #endif
 

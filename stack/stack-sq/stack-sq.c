@@ -79,7 +79,7 @@ ElemType pop(stack_sq *S)
     return S->stack[S->top--];
 }
 
-ElemType peek(stack_sq *S)
+ElemType peek_stack(stack_sq *S)
 {
     if (empty_stack(S))
     {
