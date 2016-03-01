@@ -101,9 +101,7 @@ int main()
 			printf("%d ", out_queue(&Aq));
 		}
 		printf("\n");
-	}
-	    
-	if(empty_queue(&Aq))
+	} else if(empty_queue(&Aq))
 	{
 		/* B win */
 		printf("B win!! B's cards: ");
