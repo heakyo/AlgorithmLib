@@ -18,12 +18,6 @@
 
 #include<stdio.h>
 
-enum {
-	RIGHT = 0,
-	LEFT,
-	TOTAL,
-};
-
 void swap(int *a, int *b)
 {
 	int temp = 0;
@@ -39,51 +33,35 @@ void quick_sorting(int *ary, int left, int right)
 	int l = left;
 	int r = right;
 	int base = 0;
-	int mv_flg = RIGHT;
+
+	if (left > right)
+		return;
 
 	base = ary[left];
 
 	while (l != r) {
 	
-		if (RIGHT == mv_flg) {
-			if (ary[r] > base) {
-				r--;
-				continue;
-			}
-			
-			mv_flg = LEFT;
-		}
+		while (ary[r] > base && r > l)
+			r--;
 
-		if (LEFT == mv_flg) {
-			if (ary[l] <= base) {
-				l++;
-				continue;
-			}
-
-			mv_flg = TOTAL;
-		}
+		while (ary[l] <= base && r > l)
+			l++;
 
 		// exchange
-		if (TOTAL == mv_flg) {
-			swap(&ary[l], &ary[r]);	
-			mv_flg = RIGHT;
-		}
+		swap(&ary[l], &ary[r]);
 	}
-	if (left != r)
-		swap(&ary[left], &ary[r]);
+	swap(&ary[left], &ary[r]);
 
-	if (left < r-1)
-		quick_sorting(ary, left, r-1);
-
-	if ((l+1) < right)
-		quick_sorting(ary, l+1, right);
+	quick_sorting(ary, left, r-1);
+	quick_sorting(ary, l+1, right);
 }
 
 int main(int argc, char *argv[])
 {
-	int test_array[9] = {3, 6, 4, 2, 0, 1, 8, 5, 7};
-	//int test_array[9] = {8, 7, 6, 5, 4, 3, 2, 1, 0};
-	//int test_array[3] = {8,7,6};
+	int test_array[] = {3, 6, 4, 2, 0, 1, 8, 5, 7};
+	//int test_array[] = {8, 7, 6, 5, 4, 3, 2, 1, 0};
+	//int test_array[] = {8,7,6};
+
 	int i = 0;
 	int len = sizeof(test_array) / sizeof(test_array[0]);
 
