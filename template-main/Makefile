@@ -1,20 +1,22 @@
-main: main.o
-	gcc $< -o $@
+HEAD = main.h
 
-main.S: main.c
-	gcc $< -S -o $@
+main: main.o
+	@gcc $< -o $@
+
+main.S: main.c $(HEAD)
+	@gcc $< -S -o $@
 
 main.o: main.S
-	gcc $< -c -o $@
+	@gcc $< -c -o $@
 
 disass: main
-	objdump -d $< > main_dis
+	@objdump -d $< > main_dis
 
 disass_o: main.o
-	objdump -d $< > main_o_dis
+	@objdump -d $< > main_o_dis
 
-debug_main: main.c
-	gcc $^ -g -o $@
+debug_main: main.c $(HEAD)
+	@gcc $^ -g -o $@
 
 clean:
 	rm -f main main.S main.o main_dis main_o_dis debug_main

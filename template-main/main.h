@@ -1,4 +1,4 @@
-/*****************************************************************************************
+/************************************************************************
 *    File Name			:	template-main.h
 *    Copyright			:	All Rights Reserved.
 *    Module Name		:	Draw Engine/Display
@@ -11,7 +11,7 @@
 *
 *    Abstract Description	:	Place some description here.
 *
-*----------------------------------------Revision History---------------------------------
+*-----------------------Revision History---------------------------------
 *No	Version		Date		Revised By	Item		Description
 *1	V0.1		xx.xx.16 	Marvin		xxxxxx		xxxxxx
 *
@@ -20,20 +20,19 @@
 /************************************************************************
 *	Multi-Include-Prevent Section
 ************************************************************************/
-#ifndef __FN_FILENAME_H
-#define __FN_FILENAME_H
+#ifndef __FN_MAIN_H
+#define __FN_MAIN_H
 
 /************************************************************************
 *	Debug switch Section
 ************************************************************************/
-#define D_DISP_BASE
 
 /************************************************************************
 *	Include File Section
 ************************************************************************/
-#include"stdio.h"
-#include"unistd.h"
-#include"string.h"
+#include<stdio.h>
+#include<unistd.h>
+#include<string.h>
 
 /************************************************************************
 *	Extern Section
