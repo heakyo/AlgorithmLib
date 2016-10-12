@@ -3,5 +3,6 @@ cscope*
 tags
 main
 main.S
+*.swp
 stack/stack-sq/stack-sq-test
 queue/queue-sq/queue-sq-test
