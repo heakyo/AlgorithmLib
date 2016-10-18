@@ -8,10 +8,35 @@ int adj_matrix[VERTEX][VERTEX] = {
 	{1, 		INFINITY, 	1, 		INFINITY, 	0},
 };
 
+int book[VERTEX];
+
+int sum = 0;
+
+void dfs(int vertex)
+{
+	int i = 0;
+
+	printf("%d ", vertex);
+	sum++;
+	if (VERTEX == sum)
+		return;
+
+	for (i = 0; i < VERTEX; i++) {
+		if (adj_matrix[vertex][i] == 1 && book[i] == 0) {
+			book[i] = 1;
+			dfs(i);
+		}
+	}
+
+	return;
+}
+
 int main(int argc, char *argv[])
 {
 	int i, j;
 	int a, b;
+
+	memset(book, 0x0, sizeof(book));
 
 #ifdef DYNAMIC_INIT
 	for (i = 0; i < VERTEX; i++) {
@@ -38,6 +63,10 @@ int main(int argc, char *argv[])
 		printf("\n");
 	}
 #endif
+	book[0] = 1;
+
+	dfs(0);
+	printf("\n");
 
 	return 0;
 }
