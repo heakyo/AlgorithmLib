@@ -11,7 +11,7 @@ int adj_matrix[VERTEX][VERTEX] = {
 int book[VERTEX];
 int queue[VERTEX];
 
-void wfs(int start_vertex)
+void bfs(int start_vertex)
 {
 	int head;
 	int tail;
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 	}
 #endif
 
-	wfs(0);
+	bfs(0);
 	printf("\n");
 
 	return 0;
