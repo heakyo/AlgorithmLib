@@ -41,14 +41,15 @@ void quick_sort(int *ary, int left, int right)
 
 	while (l != r) {
 	
-		while (ary[r] > base && r > l)
+		while (ary[r] >= base && r > l)
 			r--;
 
 		while (ary[l] <= base && r > l)
 			l++;
 
 		// exchange
-		swap(&ary[l], &ary[r]);
+		if (l < r)
+			swap(&ary[l], &ary[r]);
 	}
 	swap(&ary[left], &ary[r]);
 
