@@ -3,7 +3,7 @@
  *
  *       Filename:  quick_sorting.c
  *
- *    Description:  quick sorting
+ *    Description:  quick sort
  *
  *        Version:  1.0
  *        Created:  2016年10月08日 21时25分56秒
@@ -28,7 +28,7 @@ void swap(int *a, int *b)
 }
 
 /* from small number to big number */
-void quick_sorting(int *ary, int left, int right)
+void quick_sort(int *ary, int left, int right)
 {
 	int l = left;
 	int r = right;
@@ -52,8 +52,8 @@ void quick_sorting(int *ary, int left, int right)
 	}
 	swap(&ary[left], &ary[r]);
 
-	quick_sorting(ary, left, r-1);
-	quick_sorting(ary, l+1, right);
+	quick_sort(ary, left, r-1);
+	quick_sort(ary, l+1, right);
 }
 
 int main(int argc, char *argv[])
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 	int len = sizeof(test_array) / sizeof(test_array[0]);
 
-	quick_sorting(test_array, 0, len - 1);
+	quick_sort(test_array, 0, len - 1);
 
 	for (i = 0; i < len; i++)
 		printf("%d ", test_array[i]);
