@@ -41,12 +41,12 @@ int main(int argc, char *argv[])
 	p->data = a;
 	p->next = NULL;
 
-#if 0
 	t = head;
-	if (t->data > a) {
+	if (t->data > a) { /* the node is inserted in the beginning */
 		p->next = head;
 		head = p;
 	} else {
+		/* the node is inserted in the middle */
 		while (NULL != t->next) {
 			if (t->next->data > a) {
 				p->next = t->next;
@@ -55,26 +55,11 @@ int main(int argc, char *argv[])
 			}
 			t = t->next;
 		}
-		if (NULL == t->next) {
+
+		/* the node is inserted in the end */
+		if (NULL == t->next)
 			t->next = p; 
-		}
 	}
-#else
-	t = head;
-	q = t;
-	while (NULL != t) {
-		if (t->data > a) {
-			p->next = t;
-			q->next = p;
-			break;
-		}
-		q = t;
-		t = t->next;
-	}
-	if (NULL == t) {
-		q->next = p; 
-	}
-#endif
 
 	t = head;	
 	while (t != NULL) {
