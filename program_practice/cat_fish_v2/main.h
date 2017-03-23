@@ -44,7 +44,7 @@
 *	Struct Define Section
 ************************************************************************/
 struct queue {
-	int q[100];
+	int q[1000];
 	int head, tail;
 };
 
