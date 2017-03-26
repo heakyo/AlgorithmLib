@@ -44,12 +44,12 @@
 *	Struct Define Section
 ************************************************************************/
 struct queue {
-	int q[1000];
+	int data[1000];
 	int head, tail;
 };
 
 struct stack {
-	int s[100];
+	int data[100];
 	int top;
 };
 
